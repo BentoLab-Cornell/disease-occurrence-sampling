@@ -15,17 +15,27 @@ The analyses combine simulations with dengue and West Nile virus examples. They 
 
 The simulations identify behavior under specified assumptions. Empirical sensitivity analyses assess how estimates change with analytical choices. Population-proportional sampling is a comparator whose interpretation depends on the generating process, particularly when occurrence probabilities saturate. These analyses do not directly estimate the effects of spatial or temporal exposure mismatch.
 
+## Working directory
+
+The runnable package is inside `data_code/`. After cloning or downloading this repository, open a terminal at the repository root and enter the package directory:
+
+```sh
+cd data_code
+```
+
+Run all commands below from this directory. In an R session, set the working directory to `data_code/` before running the R examples.
+
 ## Prepare the dengue input
 
-The dengue input is distributed as two binary parts: `dengue.rds.part1` and `dengue.rds.part2`. Place both files in the repository's `data/` directory and combine them to recreate `data/dengue.rds` before generating figures and tables or refitting models that use the dengue input. The saved-estimate workflow also reads this file to produce input summaries and comparisons.
+The dengue input is distributed as two binary parts: `dengue.rds.part1` and `dengue.rds.part2`. Place both files in the `data_code/data/` directory and combine them to recreate `data/dengue.rds` before generating figures and tables or refitting models that use the dengue input. The saved-estimate workflow also reads this file to produce input summaries and comparisons.
 
-On macOS or Linux, run this command from the repository root:
+On macOS or Linux, run this command from `data_code/`:
 
 ```sh
 cat data/dengue.rds.part1 data/dengue.rds.part2 > data/dengue.rds
 ```
 
-Alternatively, run the following in R from the repository root (works on Windows, macOS, and Linux):
+Alternatively, run the following in R from `data_code/` (works on Windows, macOS, and Linux):
 
 ```r
 parts <- file.path("data", c("dengue.rds.part1", "dengue.rds.part2"))
@@ -43,7 +53,7 @@ The order of the parts matters. Each part contains a portion of the original fil
 
 ## Reproduce figures and tables
 
-Run the following commands from the repository root, the directory containing `run.R`:
+Run the following commands from `data_code/`, the directory containing `run.R`:
 
 ```sh
 Rscript code/install.R
@@ -96,6 +106,8 @@ Generating figures and tables requires ggplot2. Refitting additionally requires 
 Only the INLA version is enforced. Other missing packages are installed from CRAN, so the installer does not recreate a fully fixed package environment. Numerical results may vary slightly across environments. The summary workflow records the active R session with its outputs.
 
 ## Repository contents
+
+The paths in this table are relative to `data_code/`.
 
 | Path | Contents |
 | --- | --- |
