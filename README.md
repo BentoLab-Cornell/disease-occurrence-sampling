@@ -38,6 +38,32 @@ The explicit form of the default command is:
 Rscript run.R results saved
 ```
 
+## Prepare the dengue input
+
+The dengue input is distributed as two binary parts: `dengue.rds.part1` and `dengue.rds.part2`. Place both files in the repository's `data/` directory and combine them to recreate `data/dengue.rds` before refitting models that use the dengue input.
+
+On macOS or Linux, run this command from the repository root:
+
+```sh
+cat data/dengue.rds.part1 data/dengue.rds.part2 > data/dengue.rds
+```
+
+Alternatively, run the following in R from the repository root (works on Windows, macOS, and Linux):
+
+```r
+parts <- file.path("data", c("dengue.rds.part1", "dengue.rds.part2"))
+stopifnot(all(file.exists(parts)))
+local({
+  output <- file("data/dengue.rds", open = "wb")
+  on.exit(close(output))
+  for (part in parts) {
+    writeBin(readBin(part, what = "raw", n = file.info(part)$size), output)
+  }
+})
+```
+
+The order of the parts matters. Each part contains a portion of the original file and cannot be opened separately with `readRDS()`. After combining them, use `readRDS("data/dengue.rds")` as usual. These commands overwrite any existing `data/dengue.rds`.
+
 ## Refit models
 
 To fit all models from the prepared inputs and then summarize the new estimates:
@@ -75,7 +101,8 @@ Only the INLA version is enforced. Other missing packages are installed from CRA
 | --- | --- |
 | `run.R` | Entry point for listing jobs, refitting models, and generating results. |
 | `code/` | Installation, model fitting, summaries, and figure scripts. |
-| `data/dengue.rds` | Archived and reconstructed covariates, sampled backgrounds, country exclusion flags, scaling information, and spatial model inputs. |
+| `data/dengue.rds.part1`, `data/dengue.rds.part2` | Binary parts of the dengue input; combine them as described above. |
+| `data/dengue.rds` | Recreated from the two parts. Contains archived and reconstructed covariates, sampled backgrounds, country exclusion flags, scaling information, and spatial model inputs. |
 | `data/dengue_jobs.csv` | The 120 dengue fitting jobs, including sampling seeds and interventions. |
 | `data/synthetic.rds` | Simulated landscape and generating/model settings. |
 | `data/west_nile.rds` | County data, archived background covariates, population, calibrated rates, and model settings. |
