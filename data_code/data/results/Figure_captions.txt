@@ -1,0 +1,17 @@
+Figure 1. Simulations with constant individual risk and reporting. Points are replicate posterior means; gray lines connect paired fits, and black diamonds mark medians. The known-p comparator samples backgrounds in proportion to the generating occurrence probability. Each scenario has 50 draws on the same landscape.
+
+Figure 2. The four original endpoint comparisons for dengue. Points and horizontal intervals show posterior means and individual-model 95% credible intervals. Gray lines connect paired fits. Blue denotes the implemented log recipe; red denotes population-proportional weighting. Draws 1–4 correspond to seeds 980019, 980027, 980035 and 980043. Panel scales differ; intervals are not intervals for the paired difference.
+
+Figure 3. Changes along the sampling sequence. Colored points show the four paired differences in posterior means, white diamonds their medians, and gray segments their observed ranges. C minus B changes the logarithm with area and the inhabited-cell frame fixed; D minus A changes the complete recipe. The intermediate changes depend on their position in this sequence and are not factorial main effects. Their values sum to the total within each draw; their medians need not sum.
+
+Figure 4. Archived and reconstructed fits, followed by restoration of archived values for forest loss, precipitation change, protected areas, social vulnerability and temperature change, individually and together. Each restoration applies to both cases and backgrounds at the original locations. Points and segments are posterior means and marginal 95% credible intervals. Panel scales differ.
+
+Figure 5. Controlled log-to-linear and complete-recipe contrasts with all 12 predictors and after omitting the five unresolved predictors. Colored points show paired differences in posterior means; white diamonds and gray segments show medians and observed four-draw ranges. These are not posterior intervals for the contrasts.
+
+Figure 6. Changes in posterior means for the two weighting contrasts. All countries is the global reference; the other rows restrict those same draws to exclude coordinates within each named country. Draw-level changes and their observed ranges describe variation over four sampled backgrounds, with arm-dependent retained background counts after restriction.
+
+Figure 7. Complete-recipe changes in the 16 new pairs and four original reference pairs. Points are within-pair differences between posterior means, D minus A. White diamonds show mean changes, thick segments the empirical 25th–75th percentiles, and thin segments the observed range. These summarize background-draw variation for the complete recipe; the controlled B/C comparison remains based on four pairs.
+
+Figure 8. Original four-pair changes in posterior means under population-proportional weighting relative to the implemented log recipe. Red points show median within-pair changes; blue horizontal segments show the minimum and maximum across four draws. These ranges are not credible or confidence intervals. All coefficients use the same archived scaling in both arms.
+
+Figure 9. Archived-input dengue prior and mesh checks. Points and segments show posterior means and 95% credible intervals for eight settings: original (blue) and alternatives (red). The intercept prior remains fixed in slope-prior tests. All directions persist. These tests address different assumptions from background weighting.

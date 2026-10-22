@@ -1,0 +1,14 @@
+
+
+These PDFs were regenerated from the saved coefficient estimates and the original figure code. Models were not refitted. All nine figures match the report figure inventory and have been visually checked against the report images.
+
+The PDFs contain vector graphics and embedded fonts, with no raster images. They remain sharp when enlarged and have no fixed pixel resolution. The original plot dimensions, colors, scales, labels and statistics were retained. The separate captions are copied from the supplied report.
+
+Source repository:
+https://github.com/BentoLab-Cornell/disease-occurrence-sampling
+Commit: 1298ccc400f588dc4f5651d928cc024833345674
+Command: Rscript run.R results saved (from data_code/ after joining the dengue parts)
+Environment: R 4.3.2, ggplot2 3.5.2, Cairo PDF export on macOS.
+The source README records ggplot2 3.4.4; the figures were checked visually for compatibility with 3.5.2. Minor font-rendering differences from the report's PNGs are possible.
+
+Verification: nine one-page PDFs; all fonts embedded; no raster images; 26 numeric checks passed against values printed in the report. No analysis code changes were required.
