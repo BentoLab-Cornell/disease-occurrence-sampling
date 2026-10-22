@@ -15,32 +15,9 @@ The analyses combine simulations with dengue and West Nile virus examples. They 
 
 The simulations identify behavior under specified assumptions. Empirical sensitivity analyses assess how estimates change with analytical choices. Population-proportional sampling is a comparator whose interpretation depends on the generating process, particularly when occurrence probabilities saturate. These analyses do not directly estimate the effects of spatial or temporal exposure mismatch.
 
-## Reproduce figures and tables
-
-Run the following commands from the repository root, the directory containing `run.R`:
-
-```sh
-Rscript code/install.R
-Rscript run.R
-```
-
-This uses the supplied coefficient estimates without refitting models. It writes:
-
-- Nine figures in PDF and PNG format to `output/saved/figures/`.
-- Coefficient tables and comparison summaries to `output/saved/tables/`.
-- R session information to `output/saved/session.txt`.
-
-The figures cover the synthetic experiments, dengue comparisons, and prior/mesh sensitivity. Tables include all analysis components, including both West Nile modules.
-
-The explicit form of the default command is:
-
-```sh
-Rscript run.R results saved
-```
-
 ## Prepare the dengue input
 
-The dengue input is distributed as two binary parts: `dengue.rds.part1` and `dengue.rds.part2`. Place both files in the repository's `data/` directory and combine them to recreate `data/dengue.rds` before refitting models that use the dengue input.
+The dengue input is distributed as two binary parts: `dengue.rds.part1` and `dengue.rds.part2`. Place both files in the repository's `data/` directory and combine them to recreate `data/dengue.rds` before generating figures and tables or refitting models that use the dengue input. The saved-estimate workflow also reads this file to produce input summaries and comparisons.
 
 On macOS or Linux, run this command from the repository root:
 
@@ -63,6 +40,29 @@ local({
 ```
 
 The order of the parts matters. Each part contains a portion of the original file and cannot be opened separately with `readRDS()`. After combining them, use `readRDS("data/dengue.rds")` as usual. These commands overwrite any existing `data/dengue.rds`.
+
+## Reproduce figures and tables
+
+Run the following commands from the repository root, the directory containing `run.R`:
+
+```sh
+Rscript code/install.R
+Rscript run.R
+```
+
+This uses the supplied coefficient estimates without refitting models. It writes:
+
+- Nine figures in PDF and PNG format to `output/saved/figures/`.
+- Coefficient tables and comparison summaries to `output/saved/tables/`.
+- R session information to `output/saved/session.txt`.
+
+The figures cover the synthetic experiments, dengue comparisons, and prior/mesh sensitivity. Tables include all analysis components, including both West Nile modules.
+
+The explicit form of the default command is:
+
+```sh
+Rscript run.R results saved
+```
 
 ## Refit models
 
